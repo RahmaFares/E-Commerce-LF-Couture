@@ -2,3 +2,14 @@
     display: flex;
     margin-top: 10px;
 }
+
+/* For Light Theme */
+.app.light {
+    background-color: #fff;
+    color: #000;
+}
+
+.app.dark {
+    background-color: #333;
+    color: #fff;
+}

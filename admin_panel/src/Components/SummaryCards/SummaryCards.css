@@ -1,0 +1,46 @@
+.featuredItem {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.featuredItem:hover {
+    background-color: #f0f0ff;
+}
+
+.featuredTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.featuredMoneyContainer {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.featuredMoney {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px;
+}
+
+.featuredIcon {
+    font-size: 1.5rem;
+    color: #4caf50;/
+}
+
+.negative {
+    color: #f44336;
+}

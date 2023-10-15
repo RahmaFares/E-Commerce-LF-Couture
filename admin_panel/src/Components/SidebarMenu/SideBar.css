@@ -1,0 +1,56 @@
+/* Default light theme */
+.sidebar {
+    width: 250px;
+    height: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--sidebar-background-light);
+    /* Use CSS variable for background color */
+}
+
+.sidebarWrapper {
+    padding: 20px;
+    color: var(--sidebar-text-color-light);
+    /* Use CSS variable for text color */
+}
+
+.sidebarTitle {
+    font-size: 16px;
+    color: var(--sidebar-text-color-light);
+    /* Use CSS variable for text color */
+    margin-bottom: 10px;
+}
+
+.sidebarList {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebarListItem {
+    padding: 10px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebarListItem.active,
+.sidebarListItem:hover {
+    background-color: var(--sidebar-item-background-light);
+    /* Use CSS variable for item background color */
+    color: var(--sidebar-item-text-color-light);
+    /* Use CSS variable for item text color */
+}
+
+.sidebarIcon {
+    margin-right: 10px;
+    font-size: 20px !important;
+}
+
+.app.dark {
+    --sidebar-background-light: #333;
+    --sidebar-text-color-light: #fff;
+    --sidebar-item-background-light: #f0f0ff;
+    --sidebar-item-text-color-light: #007bff;
+    /* Add more variables for dark theme colors here */
+}
