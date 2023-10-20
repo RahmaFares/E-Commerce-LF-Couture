@@ -37,8 +37,9 @@ const Dropdown = () => {
         <Link to="/register">
           <BoldItalicItem>Login/Sign Up</BoldItalicItem>
         </Link>
-        <DropdownMenuItem href="#">
-          <FontAwesomeIcon icon={faHeart} /> Favorites</DropdownMenuItem>
+        <Link to="/wishlist">
+          <FontAwesomeIcon icon={faHeart} /> Favorites
+        </Link>
         <DropdownMenuItem href="#">
           <FontAwesomeIcon icon={faShoppingCart} /> Cart</DropdownMenuItem>
         <DropdownMenuItem href="#">Logout</DropdownMenuItem>

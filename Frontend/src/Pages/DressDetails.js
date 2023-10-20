@@ -1,10 +1,7 @@
-//when search icon is pressed on each product, we get the dressesdetails
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { WeddingProducts, SoireeProducts, AccessoriesProducts } from '../All_Data';
-import Product from "../components/Product";
-
 
 const Container = styled.div`
   padding: 20px;
@@ -46,6 +43,16 @@ const Price = styled.span`
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 20px;
+`;
+
+const Color = styled.div`
+  font-size: 16px;
+  margin-bottom: 10px;
+`;
+
+const Size = styled.div`
+  font-size: 16px;
+  margin-bottom: 10px;
 `;
 
 const QuantityContainer = styled.div`
@@ -138,12 +145,14 @@ const DressDetails = () => {
       {product ? (
         <Wrapper>
           <ImageContainer>
-            <Image src={product.img} alt={product.title} />
+            <Image src={product.highResolutionImg} alt={product.title} />
           </ImageContainer>
           <InfoContainer>
             <Title>{product.title}</Title>
             <Description>{product.description}</Description>
             <Price>${product.price.toFixed(2)}</Price>
+            <Color>Color: {product.color}</Color>
+            <Size>Size: {product.size}</Size>
             <QuantityContainer>
               <QuantityButton onClick={() => handleQuantityChange("dec")}>-</QuantityButton>
               <Quantity>{quantity}</Quantity>

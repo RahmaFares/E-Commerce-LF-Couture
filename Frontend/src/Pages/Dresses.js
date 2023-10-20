@@ -1,9 +1,9 @@
-//Dresses page, when u click on it in the navbar, it navigates to this
-import React from "react";
+import React, { useState } from 'react';
 import { WeddingProducts, SoireeProducts } from "../All_Data";
 import Product from "../components/Product";
 import styled from "styled-components";
 import Products from "../components/Products";
+import Wishlist from './Wishlist';
 
 const DressesContainer = styled.div`
     padding: 20px;
@@ -48,33 +48,36 @@ const ProductItem = styled.div`
 `;
 
 const Dresses = () => {
+    const addToWishlist = (item) => {
+        console.log(`Added to wishlist: ${item.title}`);
+    };
+
     return (
-        <><br /><br /><br /><br /><br /><br /><br /><>
-            <DressesContainer>
-                <CategoryContainer>
-                    <CategoryTitle>Wedding Dresses</CategoryTitle>
-                    <Products category="wedding" data={WeddingProducts} />
-                    <ProductList>
-                        {WeddingProducts.map((product) => (
-                            <ProductItem key={product.id}>
-                                <Product item={product} />
-                            </ProductItem>
-                        ))}
-                    </ProductList>
-                </CategoryContainer>
-            </DressesContainer><DressesContainer>
+        <><DressesContainer>
+            <CategoryContainer>
+                <CategoryTitle>Wedding Dresses</CategoryTitle>
+                <Products category="wedding" data={WeddingProducts} />
+                <ProductList>
+                    {WeddingProducts.map((product) => (
+                        <ProductItem key={product.id}>
+                            <Product item={product} addToWishlist={addToWishlist} />
+                        </ProductItem>
+                    ))}
+                </ProductList>
+            </CategoryContainer>
+        </DressesContainer><DressesContainer>
                 <CategoryContainer>
                     <CategoryTitle>Soiree Dresses</CategoryTitle>
                     <Products category="soiree" data={SoireeProducts} />
                     <ProductList>
                         {SoireeProducts.map((product) => (
                             <ProductItem key={product.id}>
-                                <Product item={product} />
+                                <Product item={product} addToWishlist={addToWishlist} />
                             </ProductItem>
                         ))}
                     </ProductList>
                 </CategoryContainer>
-            </DressesContainer></></>
+            </DressesContainer></>
     );
 };
 
