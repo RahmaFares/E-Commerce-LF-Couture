@@ -11,9 +11,10 @@ import bgphoto from './assets/images/bgphoto.jpg';
 import Dresses from './Pages/Dresses';
 import Accessories from './Pages/Accessories';
 import DressDetails from './Pages/DressDetails';
-import Wishlist from './Pages/Wishlist';
-import yourCart from './Pages/yourCart';
-import { WishlistProvider } from './WishlistContext'; // Ensure this import is correct.
+import ShoppingCart from './Pages/ShoppingCart';
+import { Provider } from 'react-redux';
+import { store, persistor } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const AppContainer = styled.div`
   background-image: url(${bgphoto});
@@ -41,25 +42,26 @@ const AppContainer = styled.div`
 
 function App() {
   return (
-    <Router>
-      <WishlistProvider> {/* Wrap your entire app with WishlistProvider */}
-        <AppContainer>
-          <Navbar />
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/news" element={<NewsPage />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/dresses" element={<Dresses />} />
-            <Route path="/accessories" element={<Accessories />} />
-            <Route path="/product/:id" element={<DressDetails />} />
-            <Route path="/wishlist" element={<Wishlist />} />
-            <Route path="/cart" element={<yourCart />} />
-          </Routes>
-          <Footer />
-        </AppContainer>
-      </WishlistProvider>
-    </Router>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Router>
+          <AppContainer>
+            <Navbar />
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/news" element={<NewsPage />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/dresses" element={<Dresses />} />
+              <Route path="/accessories" element={<Accessories />} />
+              <Route path="/product/:id" element={<DressDetails />} />
+              <Route path="/ShoppingCart" element={<ShoppingCart />} />
+            </Routes>
+            <Footer />
+          </AppContainer>
+        </Router>
+      </PersistGate>
+    </Provider>
   );
 }
 

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useCart } from 'react';
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useWishlist } from '../WishlistContext';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/Cart/cartSlice';
 
 const Info = styled.div`
     opacity: 0;
@@ -65,14 +66,17 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
-  const { addToWishlist } = useWishlist(); // Use the useWishlist hook to get addToWishlist
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(addToCart(item));
+  };
 
   return (
     <Container>
       <Circle />
       <Image src={item.img} />
       <Info>
-        <Icon>
+        <Icon onClick={handleAddToCart}>
           <ShoppingCartOutlined />
         </Icon>
         <Icon>
@@ -80,7 +84,7 @@ const Product = ({ item }) => {
             <SearchOutlined />
           </Link>
         </Icon>
-        <Icon onClick={() => addToWishlist(item)}>
+        <Icon>
           <FavoriteBorderOutlined />
         </Icon>
       </Info>

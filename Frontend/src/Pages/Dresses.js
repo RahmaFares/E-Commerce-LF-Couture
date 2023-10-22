@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/Cart/cartActions';
 import { WeddingProducts, SoireeProducts } from "../All_Data";
 import Product from "../components/Product";
 import styled from "styled-components";
 import Products from "../components/Products";
-import Wishlist from './Wishlist';
 
 const DressesContainer = styled.div`
     padding: 20px;
@@ -48,36 +49,41 @@ const ProductItem = styled.div`
 `;
 
 const Dresses = () => {
-    const addToWishlist = (item) => {
-        console.log(`Added to wishlist: ${item.title}`);
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (item) => {
+        dispatch(addToCart(item));
     };
 
     return (
-        <><DressesContainer>
-            <CategoryContainer>
-                <CategoryTitle>Wedding Dresses</CategoryTitle>
-                <Products category="wedding" data={WeddingProducts} />
-                <ProductList>
-                    {WeddingProducts.map((product) => (
-                        <ProductItem key={product.id}>
-                            <Product item={product} addToWishlist={addToWishlist} />
-                        </ProductItem>
-                    ))}
-                </ProductList>
-            </CategoryContainer>
-        </DressesContainer><DressesContainer>
+        <>
+            <DressesContainer>
+                <CategoryContainer>
+                    <CategoryTitle>Wedding Dresses</CategoryTitle>
+                    <Products category="wedding" data={WeddingProducts} />
+                    <ProductList>
+                        {WeddingProducts.map((product) => (
+                            <ProductItem key={product.id} onClick={() => handleAddToCart(product)}>
+                                <Product item={product} />
+                            </ProductItem>
+                        ))}
+                    </ProductList>
+                </CategoryContainer>
+            </DressesContainer>
+            <DressesContainer>
                 <CategoryContainer>
                     <CategoryTitle>Soiree Dresses</CategoryTitle>
                     <Products category="soiree" data={SoireeProducts} />
                     <ProductList>
                         {SoireeProducts.map((product) => (
-                            <ProductItem key={product.id}>
-                                <Product item={product} addToWishlist={addToWishlist} />
+                            <ProductItem key={product.id} onClick={() => handleAddToCart(product)}>
+                                <Product item={product} />
                             </ProductItem>
                         ))}
                     </ProductList>
                 </CategoryContainer>
-            </DressesContainer></>
+            </DressesContainer>
+        </>
     );
 };
 

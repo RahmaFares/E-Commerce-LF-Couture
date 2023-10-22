@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { WeddingProducts, SoireeProducts, AccessoriesProducts } from '../All_Data';
+import { addToCart } from '../redux/Cart/cartActions';
 
 const Container = styled.div`
   padding: 20px;
@@ -102,6 +103,14 @@ const DressDetails = () => {
   const { id } = useParams(); // Get the id parameter from the URL
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  // Access the Redux dispatch function
+  const dispatch = dispatch();
+  const handleAddToCart = () => {
+    // Dispatch the addToCart action with product and quantity
+    dispatch(addToCart(product, quantity));
+    // Optionally, you can provide user feedback (e.g., a confirmation message)
+    alert(`Added ${quantity} ${product.title} to the cart`);
+  };
 
   useEffect(() => {
     const fetchData = () => {

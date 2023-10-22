@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useWishlist } from '../WishlistContext';
 import { AccessoriesProducts } from "../All_Data";
 import Product from "../components/Product";
 import styled from "styled-components";
@@ -48,8 +47,6 @@ const ProductItem = styled.div`
 `;
 
 const Accessories = () => {
-    // Assuming you use useContext to consume the context provided by WishlistProvider.
-    const { addToWishlist } = useWishlist;
 
     return (
         <AccessoriesContainer>
@@ -59,7 +56,7 @@ const Accessories = () => {
                 <ProductList>
                     {AccessoriesProducts.map((product) => (
                         <ProductItem key={product.id}>
-                            <Product item={product} addToWishlist={addToWishlist} />
+                            <Product item={product} />
                         </ProductItem>
                     ))}
                 </ProductList>
