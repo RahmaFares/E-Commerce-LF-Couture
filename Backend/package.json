@@ -1,0 +1,32 @@
+{
+  "name": "e-commerce-backend",
+  "version": "1.0.0",
+  "description": "",
+  "proxy": "http://localhost:5000",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "@stripe/react-stripe-js": "^2.3.1",
+    "@stripe/stripe-js": "^2.1.9",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.2.0",
+    "mongoose": "^7.1.0",
+    "nodemailer": "^6.9.7",
+    "nodemon": "^2.0.22",
+    "react-router-dom": "^6.11.2",
+    "redux-thunk": "^2.4.2",
+    "stripe": "^14.1.0"
+  }
+}

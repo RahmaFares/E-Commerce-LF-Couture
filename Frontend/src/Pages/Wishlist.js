@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromWishlist } from '../redux/Wishlist/wishlistSlice';
 
 const WishlistContainer = styled.div`
     background-color: #f2f2f2; /* Updated background color */
@@ -78,20 +80,16 @@ const WishlistRemoveButton = styled.button`
 `;
 
 const Wishlist = () => {
-    const [wishlist, setWishlist] = useState([]);
+    const wishlist = useSelector((state) => state.wishlist.items);
+    const dispatch = useDispatch();
 
-    const addToWishlist = (item) => {
-        setWishlist([...wishlist, item]);
-    };
-
-    const removeFromWishlist = (item) => {
-        const updatedWishlist = wishlist.filter((wishlistItem) => wishlistItem.id !== item.id);
-        setWishlist(updatedWishlist);
+    const handleRemoveFromWishlist = (item) => {
+        dispatch(removeFromWishlist(item.id)); // We just need the item ID to identify which item to remove
     };
 
     return (
         <WishlistContainer>
-            <WishlistTitle>Your Wishlist</WishlistTitle>
+            <WishlistTitle>Your Wishlist ({wishlist.length})</WishlistTitle>
             {wishlist.length === 0 ? (
                 <p>Your wishlist is empty.</p>
             ) : (
@@ -105,7 +103,7 @@ const Wishlist = () => {
                                     <WishlistItemPrice>${item.price}</WishlistItemPrice>
                                 </WishlistItemInfo>
                             </WishlistItemDetails>
-                            <WishlistRemoveButton onClick={() => removeFromWishlist(item)}>
+                            <WishlistRemoveButton onClick={() => handleRemoveFromWishlist(item)}>
                                 Remove
                             </WishlistRemoveButton>
                         </WishlistItem>

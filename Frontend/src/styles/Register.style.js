@@ -24,10 +24,14 @@ export const RegisterContainer = styled.div`
 `;
 
 export const Wrapper = styled.div`
-width: 40%;
-padding: 20px;
-background-color: white;
-`
+    width: 40%;
+    padding: 20px;
+    background-color: white;
+
+    @media (max-width: 768px) {
+        width: 80%;
+    }
+`;
 
 export const Title = styled.h1`
   font-size: 24px;
@@ -69,3 +73,4 @@ export const Button = styled.button`
 export const Error = styled.p`
   color: #f44336;
 `;
+

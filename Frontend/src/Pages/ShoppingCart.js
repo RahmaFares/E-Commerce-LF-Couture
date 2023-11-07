@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { removeFromCart, decreaseQuantity, increaseQuantity } from '../redux/Cart/cartSlice';
 import { FaTrash, FaPlus, FaMinus } from 'react-icons/fa';
 import bgphoto from '../../src/assets/images/bgphoto.jpg';
+import { useNavigate } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -167,6 +168,12 @@ const ShoppingCart = () => {
     dispatch(increaseQuantity(id));
   };
 
+  const navigate = useNavigate();
+
+  const navigateToCheckout = () => {
+    navigate('/checkout');
+  };
+
   return (
     <Container>
       <Title>Your Shopping Cart</Title>
@@ -202,7 +209,7 @@ const ShoppingCart = () => {
           <span>Total:</span>
           <span>$ {totalAmount.toFixed(2)}</span>
         </TotalAmount>
-        <CheckoutButton>Checkout</CheckoutButton>
+        <CheckoutButton onClick={navigateToCheckout}>Checkout</CheckoutButton>
       </CheckoutContainer>
     </Container>
   );

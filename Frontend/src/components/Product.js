@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/Cart/cartSlice';
+import { addToWishlist } from '../redux/Wishlist/wishlistSlice';
+import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Info = styled.div`
     opacity: 0;
@@ -66,9 +69,24 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleAddToCart = () => {
-    dispatch(addToCart(item));
+    if (isAuthenticated) {
+      dispatch(addToCart(item));
+    } else {
+      navigate('/register');
+    }
+  };
+
+  const handleAddToWishlist = () => {
+    if (isAuthenticated) {
+      dispatch(addToWishlist(item));
+    } else {
+      navigate('/register');
+    }
   };
 
   return (
@@ -84,7 +102,7 @@ const Product = ({ item }) => {
             <SearchOutlined />
           </Link>
         </Icon>
-        <Icon>
+        <Icon onClick={handleAddToWishlist}>
           <FavoriteBorderOutlined />
         </Icon>
       </Info>

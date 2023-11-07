@@ -39,7 +39,10 @@ const Dropdown = () => {
       <OpenLinksButton onClick={handleDropdown}> &#8801;</OpenLinksButton>
       <DropdownMenu open={isOpen}>
         <Link to="/register">
-          <BoldItalicItem>Login/Sign Up</BoldItalicItem>
+          <BoldItalicItem>Sign Up</BoldItalicItem>
+        </Link>
+        <Link to="/login">
+          <BoldItalicItem>login</BoldItalicItem>
         </Link>
         <Link to="/wishlist">
           <BoldItalicItem>
