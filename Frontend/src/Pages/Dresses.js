@@ -1,5 +1,6 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addToCart } from '../redux/Cart/cartActions';
 import { WeddingProducts, SoireeProducts } from "../All_Data";
 import Product from "../components/Product";

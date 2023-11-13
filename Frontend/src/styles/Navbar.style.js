@@ -113,3 +113,11 @@ export const MobileMenuItem = styled(Link)`
     color: #E25822;
   }
 `;
+
+export const ProfileIcon = styled.img`
+  width: 32px; 
+  height: 32px; 
+  border-radius: 50%; 
+  cursor: pointer;
+  margin-left: 10px; 
+`;

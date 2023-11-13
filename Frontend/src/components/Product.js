@@ -77,7 +77,7 @@ const Product = ({ item }) => {
     if (isAuthenticated) {
       dispatch(addToCart(item));
     } else {
-      navigate('/register');
+      navigate('/login');
     }
   };
 
@@ -85,7 +85,7 @@ const Product = ({ item }) => {
     if (isAuthenticated) {
       dispatch(addToWishlist(item));
     } else {
-      navigate('/register');
+      navigate('/login');
     }
   };
 

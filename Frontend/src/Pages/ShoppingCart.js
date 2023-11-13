@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { removeFromCart, decreaseQuantity, increaseQuantity } from '../redux/Cart/cartSlice';
 import { FaTrash, FaPlus, FaMinus } from 'react-icons/fa';
 import bgphoto from '../../src/assets/images/bgphoto.jpg';
-import { useNavigate } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -151,10 +151,18 @@ const QuantityButton = styled.button`
 `;
 
 const ShoppingCart = () => {
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const items = cart ? cart.items : [];
   const totalAmount = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
 
   const handleRemove = (id) => {
     dispatch(removeFromCart(id));
@@ -168,7 +176,6 @@ const ShoppingCart = () => {
     dispatch(increaseQuantity(id));
   };
 
-  const navigate = useNavigate();
 
   const navigateToCheckout = () => {
     navigate('/checkout');

@@ -64,7 +64,6 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/news" element={<NewsPage />} />
                 <Route path="/contact" element={<ContactUs />} />
-                <Route path="/register" element={<Register />} />
                 <Route path="/dresses" element={<Dresses />} />
                 <Route path="/accessories" element={<Accessories />} />
                 <Route path="/product/:id" element={<DressDetails />} />
@@ -82,7 +81,7 @@ function App() {
                   } />
                 </Route>
                 <Route path="/login" element={<Login />} />
-                <Route path="/register" component={Register} />
+                <Route path="/register" element={<Register />} />
               </Routes>
               <Footer />
             </AppContainer>

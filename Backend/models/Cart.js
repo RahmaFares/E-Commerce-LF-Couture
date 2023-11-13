@@ -1,20 +1,13 @@
-// const mongoose = require("mongoose")
-// //creating user schema
+const mongoose = require("mongoose");
 
-// const CartSchema = new mongoose.Schema(
-//     {
-//         //every user has one cart
-//         userID: { type: String, required: true }, //type, and required and unique
-//         products: [
-//             {
-//                 productID: { type: String, required: true },
-//                 quantity: { type: Number, default: 1 },
-//             }
-//         ],
+const CartSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    items: [
+        {
+            productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+            quantity: { type: Number, required: true, min: [1, 'Quantity can not be less then 1.'] },
+        },
+    ],
+}, { timestamps: true });
 
-//     },
-//     { timestamps: true }
-
-// );
-
-// module.exports = mongoose.model("Cart", CartSchema);
+module.exports = mongoose.model("Cart", CartSchema);
