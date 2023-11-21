@@ -1,8 +1,6 @@
 import React from "react";
 import { ContactContainer, GetInTouch, ContactInfo, ContactForm, FormInput, FormTextarea } from '../styles/Contact.style'
 
-
-
 const ContactUS = () => {
 
 

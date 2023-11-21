@@ -3,12 +3,16 @@ import { NavbarContainer, Logo, NavExtendedContainer, NavInnerContainer, Left, R
 import logo from '../assets/images/logo.jpg';
 import Dropdown from './Dropdown';
 import { useSelector } from 'react-redux';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import PersonIcon from '@material-ui/icons/Person';
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
-    const cart = useSelector((state) => state.cart);
     const user = useSelector((state) => state.user.currentUser);
+    const navigate = useNavigate();
 
+    const handleProfileClick = () => {
+        navigate('/profile-settings');
+    };
 
     return (
         <NavbarContainer>
@@ -23,16 +27,13 @@ function Navbar() {
                         <NavbarLink to="/accessories"> ACCESSORIES </NavbarLink>
                         <NavbarLink to="/news"> NEWS </NavbarLink>
                         <NavbarLink to="/contact"> CONTACT US </NavbarLink>
-                        {/* Conditional rendering based on user authentication */}
-                        {user ? (
-                            <div>
-                                <AccountCircleIcon /> {/* This will display the profile icon */}
-                                {/* You can add more logic to display user info or link to profile */}
-                            </div>
-                        ) : (
-                            <NavbarLink to="/login"> LOGIN </NavbarLink>
+                        {user && (
+                            <PersonIcon
+                                style={{ color: 'white', fontSize: '30px', cursor: 'pointer' }}
+                                onClick={handleProfileClick}
+                            />
                         )}
-                        <Dropdown />
+                        <Dropdown user={user} />
                     </NavbarLinkContainer>
                 </Right>
             </NavInnerContainer>

@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useEffect } from 'react'; // Add useEffect to your import from React
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom'; // Add useNavigate to your import from react-router-dom
+import styled from 'styled-components';
 import { removeFromWishlist } from '../redux/Wishlist/wishlistSlice';
 
 const WishlistContainer = styled.div`
@@ -82,9 +83,16 @@ const WishlistRemoveButton = styled.button`
 const Wishlist = () => {
     const wishlist = useSelector((state) => state.wishlist.items);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const handleRemoveFromWishlist = (item) => {
-        dispatch(removeFromWishlist(item.id)); // We just need the item ID to identify which item to remove
+    useEffect(() => {
+        if (!wishlist) {
+            navigate('/login');
+        }
+    }, [wishlist, navigate]);
+
+    const handleRemoveFromWishlist = (id) => {
+        dispatch(removeFromWishlist(id)); // Pass the id to removeFromWishlist
     };
 
     return (
@@ -103,7 +111,7 @@ const Wishlist = () => {
                                     <WishlistItemPrice>${item.price}</WishlistItemPrice>
                                 </WishlistItemInfo>
                             </WishlistItemDetails>
-                            <WishlistRemoveButton onClick={() => handleRemoveFromWishlist(item)}>
+                            <WishlistRemoveButton onClick={() => handleRemoveFromWishlist(item.id)}>
                                 Remove
                             </WishlistRemoveButton>
                         </WishlistItem>

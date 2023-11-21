@@ -4,6 +4,7 @@ import { login } from "../redux/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import newsbg from '../assets/images/newsbg.jpg'
 import { useNavigate } from 'react-router-dom';
+import { LoginStart, LoginSuccess, LoginFailure } from "../redux/userRedux";
 
 const Container = styled.div`
 display: flex;
@@ -71,17 +72,29 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isFetching, error } = useSelector((state) => state.user);
+  const { isFetching, currentUser } = useSelector((state) => state.user);
 
   const handleClick = async (e) => {
     e.preventDefault();
+    dispatch(LoginStart());
     try {
-      await login(dispatch, { username, password });
-      navigate('/'); // Navigate to home page on successful login
+      const response = await dispatch(login({ username, password }));
+      // Assuming the login action returns an object with a 'type' property
+      if (response.type === "user/loginSuccess") {
+        console.log('Logged in user:', response.payload);
+        navigate('/');
+      } else {
+        // This case handles any non-success types, including failure and errors
+        alert("Login failed. Please check your username and password.");
+      }
     } catch (err) {
       console.error("Login failed:", err);
+      // This is a network or server error
+      alert("An error occurred while trying to log in.");
     }
   };
+
+
 
   return (
     <Container>
@@ -100,7 +113,6 @@ const Login = () => {
           <Button type="submit" disabled={isFetching}>
             LOGIN
           </Button>
-          {/* {error && <Error>Something went wrong...</Error>} */}
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
           <Link>CREATE A NEW ACCOUNT</Link>
         </Form>

@@ -7,6 +7,8 @@ import {
     LoginFailure,
 } from "./userRedux";
 import { publicRequest } from "../reqMethods";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
 
 export const register = (userInfo) => async (dispatch) => {
     dispatch(RegisterStart());
@@ -19,11 +21,18 @@ export const register = (userInfo) => async (dispatch) => {
 };
 
 export const login = (credentials) => async (dispatch) => {
-    dispatch(LoginStart());
     try {
         const response = await publicRequest.post('/auth/login', credentials);
-        dispatch(LoginSuccess(response.data));
+        if (response.status === 200) {
+            dispatch(LoginSuccess(response.data));
+            return { type: "user/loginSuccess", payload: response.data };
+        } else {
+            dispatch(LoginFailure());
+            return { type: "user/loginFailure" };
+        }
     } catch (error) {
-        dispatch(LoginFailure(error.response.data));
+        dispatch(LoginFailure());
+        console.log('Login failure', error);
+        return { type: "user/loginFailure" };
     }
 };

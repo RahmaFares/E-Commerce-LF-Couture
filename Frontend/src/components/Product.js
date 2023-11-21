@@ -1,12 +1,10 @@
-import React, { useCart } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import styled from "styled-components";
-import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/Cart/cartSlice';
 import { addToWishlist } from '../redux/Wishlist/wishlistSlice';
-import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
 
 const Info = styled.div`
     opacity: 0;
@@ -69,12 +67,13 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
-  const { isAuthenticated } = useAuth();
-  const navigate = useNavigate();
+  // Assuming you have the user's authentication status stored in Redux store
+  const user = useSelector((state) => state.user.currentUser);
+  const navigate = useNavigate(); // Define useNavigate here
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    if (isAuthenticated) {
+    if (user) {
       dispatch(addToCart(item));
     } else {
       navigate('/login');
@@ -82,7 +81,7 @@ const Product = ({ item }) => {
   };
 
   const handleAddToWishlist = () => {
-    if (isAuthenticated) {
+    if (user) {
       dispatch(addToWishlist(item));
     } else {
       navigate('/login');

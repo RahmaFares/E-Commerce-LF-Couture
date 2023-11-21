@@ -20,10 +20,6 @@ export default function Sidebar() {
               <Equalizer className="sidebarIcon" />
               Analytics
             </li>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
-            </li>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -38,10 +34,6 @@ export default function Sidebar() {
             <li className="sidebarListItem">
               <PeopleAlt className="sidebarIcon" />
               Add User
-            </li>
-            <li className="sidebarListItem">
-              <PeopleAlt className="sidebarIcon" />
-              User Permissions
             </li>
           </ul>
         </div>
@@ -58,19 +50,17 @@ export default function Sidebar() {
               <Storefront className="sidebarIcon" />
               Add Product
             </li>
-            {/* <li className="sidebarListItem">
-              <Storefront className="sidebarIcon" />
-              Categories
-            </li> */}
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Analytics</h3>
+          <h3 className="sidebarTitle">Order Management</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <Assessment className="sidebarIcon" />
-              Analytics
-            </li>
+            <Link to="/products" className="link">
+              <li className="sidebarListItem">
+                <Storefront className="sidebarIcon" />
+                Orders
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -89,21 +79,8 @@ export default function Sidebar() {
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Reports</h3>
-          <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <Assessment className="sidebarIcon" />
-              Reports
-            </li>
-          </ul>
-        </div>
-        <div className="sidebarMenu">
           <h3 className="sidebarTitle">Messages</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <Email className="sidebarIcon" />
-              Mail
-            </li>
             <li className="sidebarListItem">
               <Feedback className="sidebarIcon" />
               Feedback

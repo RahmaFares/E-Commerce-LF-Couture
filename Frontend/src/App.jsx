@@ -23,6 +23,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import { useSelector } from "react-redux";
+import ProfileSettings from './Pages/ProfileSettings';
 
 const AppContainer = styled.div`
   background-image: url(${bgphoto});
@@ -82,6 +83,8 @@ function App() {
                 </Route>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/profile-settings" element={<ProfileSettings />} />
+
               </Routes>
               <Footer />
             </AppContainer>

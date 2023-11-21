@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { WeddingProducts, SoireeProducts, AccessoriesProducts } from '../All_Data';
 import { addToCart } from '../redux/Cart/cartActions';
-import { useDispatch } from 'react-redux';
-import { useAuth } from '../contexts/AuthContext';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Container = styled.div`
   padding: 20px;
@@ -105,77 +104,51 @@ const DressDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
-
-  // Correctly get the dispatch function
   const dispatch = useDispatch();
-  const { isAuthenticated } = useAuth();
-
-  const handleAddToCart = () => {
-    dispatch(addToCart(product, quantity));
-    alert(`Added ${quantity} ${product.title} to the cart`);
-  };
+  const user = useSelector((state) => state.user.currentUser); // Assuming Redux is used for auth
 
   useEffect(() => {
-    const fetchData = () => {
-      // Check if the product is in WeddingProducts
-      const weddingProduct = WeddingProducts.find((product) => product.id === parseInt(id));
-      if (weddingProduct) {
-        setProduct(weddingProduct);
-        return;
-      }
+    const allProducts = [...WeddingProducts, ...SoireeProducts, ...AccessoriesProducts];
+    const foundProduct = allProducts.find((prod) => prod.id.toString() === id);
 
-      // Check if the product is in SoireeProducts
-      const soireeProduct = SoireeProducts.find((product) => product.id === parseInt(id));
-      if (soireeProduct) {
-        setProduct(soireeProduct);
-        return;
-      }
-
-      // Check if the product is in AccessoriesProducts
-      const accessoryProduct = AccessoriesProducts.find((product) => product.id === parseInt(id));
-      if (accessoryProduct) {
-        setProduct(accessoryProduct);
-        return;
-      }
-
-      // If the product is not found, you can handle it as per your requirements
-    };
-
-    fetchData();
+    setProduct(foundProduct);
   }, [id]);
 
-  const handleQuantityChange = (type) => {
-    if (type === "dec" && quantity > 1) {
-      setQuantity(quantity - 1);
-    } else if (type === "inc") {
-      setQuantity(quantity + 1);
-    }
+  const handleAddToCart = () => {
+    dispatch(addToCart({ ...product, quantity }));
+    // Add notification logic if needed
   };
+
+  const handleQuantityChange = (type) => {
+    setQuantity(prev =>
+      type === "dec" && prev > 1 ? prev - 1 : type === "inc" ? prev + 1 : prev
+    );
+  };
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
 
   return (
     <Container>
-      {product ? (
-        <Wrapper>
-          <ImageContainer>
-            <Image src={product.highResolutionImg} alt={product.title} />
-          </ImageContainer>
-          <InfoContainer>
-            <Title>{product.title}</Title>
-            <Description>{product.description}</Description>
-            <Price>${product.price.toFixed(2)}</Price>
-            <Color>Color: {product.color}</Color>
-            <Size>Size: {product.size}</Size>
-            <QuantityContainer>
-              <QuantityButton onClick={() => handleQuantityChange("dec")}>-</QuantityButton>
-              <Quantity>{quantity}</Quantity>
-              <QuantityButton onClick={() => handleQuantityChange("inc")}>+</QuantityButton>
-            </QuantityContainer>
-            {isAuthenticated && <AddToCartButton onClick={handleAddToCart}>Add to Cart</AddToCartButton>}
-          </InfoContainer>
-        </Wrapper>
-      ) : (
-        <div>Product not found</div>
-      )}
+      <Wrapper>
+        <ImageContainer>
+          <Image src={product.highResolutionImg} alt={product.title} />
+        </ImageContainer>
+        <InfoContainer>
+          <Title>{product.title}</Title>
+          <Description>{product.description}</Description>
+          <Price>${product.price.toFixed(2)}</Price>
+          <Color>Color: {product.color}</Color>
+          <Size>Size: {product.size}</Size>
+          <QuantityContainer>
+            <QuantityButton onClick={() => handleQuantityChange("dec")}>-</QuantityButton>
+            <Quantity>{quantity}</Quantity>
+            <QuantityButton onClick={() => handleQuantityChange("inc")}>+</QuantityButton>
+          </QuantityContainer>
+          {user && <AddToCartButton onClick={handleAddToCart}>Add to Cart</AddToCartButton>}
+        </InfoContainer>
+      </Wrapper>
     </Container>
   );
 };
