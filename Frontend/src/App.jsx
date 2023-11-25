@@ -24,6 +24,7 @@ import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import { useSelector } from "react-redux";
 import ProfileSettings from './Pages/ProfileSettings';
+import OrderSummary from './Pages/OrderSummary';
 
 const AppContainer = styled.div`
   background-image: url(${bgphoto});
@@ -84,7 +85,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile-settings" element={<ProfileSettings />} />
-
+                <Route path='/order-summary/:orderId' element={<OrderSummary />} />
               </Routes>
               <Footer />
             </AppContainer>

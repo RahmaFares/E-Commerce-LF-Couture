@@ -1,22 +1,34 @@
-// const express = require('express');
-// const router = express.Router();
-// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const express = require('express');
+const router = express.Router();
+const Stripe = require('stripe');
+require('dotenv').config();
 
-// router.post("/charge", (req, res) => {
-//     const { amount, token } = req.body;
+// Initialize Stripe with the secret key from the environment variables
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-//     stripe.charges.create({
-//         amount,
-//         currency: "usd",
-//         source: token,
-//         description: "Payment Charge",
-//     }, (err, charge) => {
-//         if (err) {
-//             res.status(500).send({ error: err.message });
-//         } else {
-//             res.status(200).send({ success: true });
-//         }
-//     });
-// });
+// POST endpoint for charging a payment
+router.post('/charge', async (req, res) => {
+    const { token, amount } = req.body;
 
-// module.exports = router;
+    try {
+        // Use Stripe's library to make a charge
+        const charge = await stripe.charges.create({
+            amount: amount,
+            currency: 'usd',
+            source: token,
+            description: 'Payment for Leila Fares order',
+        });
+        if (charge.status !== 'succeeded') {
+            throw new Error('Payment not successful');
+        }
+
+
+        // If the charge is successful, send a success response
+        res.status(200).json({ success: true, charge });
+    } catch (error) {
+        console.error('Error in /charge:', error); // Log error for server side tracking
+        res.status(500).json({ success: false, message: error.message });
+    }
+});
+
+module.exports = router;
