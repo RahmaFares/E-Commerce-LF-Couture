@@ -25,6 +25,8 @@ import Login from "./Pages/Login";
 import { useSelector } from "react-redux";
 import ProfileSettings from './Pages/ProfileSettings';
 import OrderSummary from './Pages/OrderSummary';
+import ForgotPassword from './Pages/ForgotPassword'; // Adjust the path as necessary
+import ResetPassword from './Pages/ResetPassword'; // Adjust the path as necessary
 
 const AppContainer = styled.div`
   background-image: url(${bgphoto});
@@ -86,6 +88,8 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile-settings" element={<ProfileSettings />} />
                 <Route path='/order-summary/:orderId' element={<OrderSummary />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/reset-password/:token" element={<ResetPassword />} />
               </Routes>
               <Footer />
             </AppContainer>

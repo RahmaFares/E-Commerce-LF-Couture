@@ -113,7 +113,7 @@ const Login = () => {
           <Button type="submit" disabled={isFetching}>
             LOGIN
           </Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+          <Link onClick={() => navigate('/forgot-password')}>DO NOT YOU REMEMBER THE PASSWORD?</Link>
           <Link>CREATE A NEW ACCOUNT</Link>
         </Form>
       </Wrapper>
