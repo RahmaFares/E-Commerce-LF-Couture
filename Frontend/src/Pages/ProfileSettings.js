@@ -71,7 +71,6 @@ function ProfileSettings() {
   return (
     <ProfileContainer>
       <Sidebar>
-        <NavLink onClick={() => navigate('/profile-settings/orders')}>My Orders</NavLink>
         <NavLink onClick={() => navigate('/profile-settings/address-book')}>Address Book</NavLink>
         <NavLink onClick={() => navigate('/profile-settings/payment-method')}>Payment Method</NavLink>
         <NavLink onClick={() => navigate('/profile-settings/manage-account')}>Manage My Account</NavLink>
@@ -81,7 +80,7 @@ function ProfileSettings() {
       </Sidebar>
       <Content>
         <Section>
-          <Title>My Orders</Title>
+          <Title>My Profile Settings</Title>
         </Section>
       </Content>
     </ProfileContainer>

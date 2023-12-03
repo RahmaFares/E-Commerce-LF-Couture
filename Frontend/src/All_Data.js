@@ -19,7 +19,7 @@ export const WeddingProducts = [
         description: 'A beautiful and elegant wedding dress for your special day.',
         price: 999.99,
         img: img1,
-        sizes: ['S', 'M', 'L', 'XL'],
+        size: ['S/', 'M/', 'L/', 'XL'],
     },
     {
         id: 2,
@@ -27,7 +27,7 @@ export const WeddingProducts = [
         description: 'A classic wedding gown with intricate lace details.',
         price: 799.99,
         img: img4,
-        sizes: ['S', 'M', 'L'],
+        size: ['S/', 'M/', 'L/'],
     },
     {
         id: 3,
@@ -35,7 +35,7 @@ export const WeddingProducts = [
         description: 'A modern and chic wedding dress with a mermaid silhouette.',
         price: 1299.99,
         img: img3,
-        sizes: ['S', 'M', 'L', 'XL'],
+        size: ['S/', 'M/', 'L/', 'XL'],
     },
     {
         id: 4,
@@ -43,7 +43,7 @@ export const WeddingProducts = [
         description: 'Feel like a princess in this beautiful wedding gown.',
         price: 899.99,
         img: img2,
-        sizes: ['S', 'M', 'L'],
+        size: ['S/', 'M/', 'L'],
     },
     {
         id: 5,
@@ -51,7 +51,7 @@ export const WeddingProducts = [
         description: 'A bohemian-inspired wedding dress with floral lace.',
         price: 1099.99,
         img: img5,
-        sizes: ['S', 'M', 'L', 'XL'],
+        size: ['S/', 'M/', 'L/', 'XL'],
     },
     {
         id: 6,
@@ -59,15 +59,15 @@ export const WeddingProducts = [
         description: 'A vintage-inspired lace wedding dress for a timeless look.',
         price: 899.99,
         img: img11,
-        sizes: ['S', 'M', 'L'],
+        size: ['S/', 'M/', 'L/'],
     },
     {
         id: 7,
-        img: "https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+        img: img1,
     },
     {
         id: 8,
-        img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
+        img: img3,
     },
 ];
 
@@ -77,7 +77,7 @@ export const SoireeProducts = [
         title: 'Soiree Dress 1',
         description: 'A stunning soiree dress for your special event.',
         price: 149.99,
-        img: 'https://example.com/soiree-dress-1.png',
+        img: img1,
         sizes: ['S', 'M', 'L'],
     },
     {
@@ -85,32 +85,32 @@ export const SoireeProducts = [
         title: 'Soiree Dress 2',
         description: 'A chic and stylish soiree dress with a unique design.',
         price: 119.99,
-        img: 'https://example.com/soiree-dress-2.png',
+        img: img4,
         sizes: ['S', 'M', 'L', 'XL'],
     },
     {
         id: 3,
-        img: "https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
+        img: img3,
     },
     {
         id: 4,
-        img: "https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
+        img: img2,
     },
     {
         id: 5,
-        img: "https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
+        img: img4,
     },
     {
         id: 6,
-        img: "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+        img: img5,
     },
     {
         id: 7,
-        img: "https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+        img: img11,
     },
     {
         id: 8,
-        img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
+        img: img3,
     },
 ];
 

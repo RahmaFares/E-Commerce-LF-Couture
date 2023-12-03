@@ -1,0 +1,53 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.chart-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem 0;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .chart-container {
+        width: 90%;
+        padding: 1rem;
+    }
+}
+
+/* Typography */
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.recent-activities {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.recent-activities h2 {
+    margin-bottom: 1rem;
+}
+
+.recent-activities ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-activities li {
+    margin-bottom: 0.5rem;
+}

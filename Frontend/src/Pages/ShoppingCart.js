@@ -26,9 +26,9 @@ const Container = styled.div`
 const Title = styled.h1`
   font-size: 34px;
   margin-bottom: 50px;
-  color: #333;     // Darkened color for emphasis
-  font-weight: 600; // Slightly bold for a modern feel
-  letter-spacing: -1px;  // Tighten the letter spacing
+  color: #333;     
+  font-weight: 600; 
+  letter-spacing: -1px; 
 `;
 
 const CartItems = styled.div`
@@ -36,20 +36,20 @@ const CartItems = styled.div`
   flex-direction: column;
   gap: 25px;
   width: 100%;
-  max-width: 700px;  // Limit width for better readability
+  max-width: 700px; 
 `;
 
 const CartItem = styled.div`
   background: #fff;
   padding: 20px;
-  border: 1px solid #e5e7eb;   // subtle border for definition
+  border: 1px solid #e5e7eb;   
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: box-shadow 0.2s;  // smooth transition for hover effect
+  transition: box-shadow 0.2s;  
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);  // subtle shadow on hover
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
   }
 `;
 
@@ -62,13 +62,13 @@ const CartItemDetails = styled.div`
 const CartItemTitle = styled.h3`
   font-size: 20px;
   color: #2d3748;
-  font-weight: 500;  // Make it slightly bold
+  font-weight: 500;  
 `;
 
 const CartItemPrice = styled.p`
   font-size: 18px;
   color: #4a5568;
-  font-weight: 400;  // Regular weight
+  font-weight: 400;  
 `;
 
 const TotalAmount = styled.div`
@@ -76,39 +76,39 @@ const TotalAmount = styled.div`
   justify-content: space-between;
   font-size: 24px;
   margin-top: 40px;
-  color: #000;  // Make the total black as requested
+  color: #000;  
 `;
 
 
 const CheckoutContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;  // centers its children horizontally
+  align-items: center;  
   width: 100%;
-  max-width: 600px;     // you can adjust this value as needed
-  text-align: center;   // ensures the text inside is centered
+  max-width: 600px;     
+  text-align: center;   
   margin-top: 40px;
 `;
 
 const CheckoutButton = styled.button`
-  background: linear-gradient(135deg, #2a2a2a, #4a4a4a); // dark grays
-  color: #f5f5f5;  // light gray text for contrast
-  border: 1px solid #1a1a1a; // subtle border
+  background: linear-gradient(135deg, #2a2a2a, #4a4a4a); 
+  color: #f5f5f5;  
+  border: 1px solid #1a1a1a; 
   padding: 12px 24px;
   cursor: pointer;
   font-size: 18px;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1); // subtle shadow for depth
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1); 
   transition: all 0.3s ease-in-out;
   &:hover {
-    background: linear-gradient(135deg, #4a4a4a, #2a2a2a); // invert the gradient on hover
-    transform: translateY(-2px);  // subtle lift on hover
+    background: linear-gradient(135deg, #4a4a4a, #2a2a2a); 
+    transform: translateY(-2px); 
   }
 `;
 
 const ControlsWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px; // Spacing between controls and trash icon
+  gap: 20px;
 `;
 
 const RemoveButton = styled.button`
@@ -188,13 +188,13 @@ const ShoppingCart = () => {
         {items.map((item) => (
           <CartItem key={item.id}>
             <CartItemDetails>
-              <img src={item.image} alt={item.title} width="100" height="100" />
+              <img src={item.img} alt={item.title} width="100" height="100" />
               <div>
                 <CartItemTitle>{item.title}</CartItemTitle>
                 <CartItemPrice>$ {item.price} x {item.quantity}</CartItemPrice>
               </div>
             </CartItemDetails>
-            <ControlsWrapper> {/* New wrapper for alignment */}
+            <ControlsWrapper>
               <QuantityControl>
                 <QuantityButton onClick={() => handleDecreaseQuantity(item.id)}>
                   <FaMinus />

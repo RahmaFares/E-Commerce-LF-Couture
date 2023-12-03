@@ -80,7 +80,6 @@ const Register = () => {
       })
       .catch((error) => {
         console.error('Registration failed', error);
-        // Handle registration failure, e.g., show error message
       });
   };
 

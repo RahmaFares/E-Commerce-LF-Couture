@@ -13,11 +13,9 @@ export default class YoutubeVideo
             },
         };
 
-
         return (
             <div>
                 <YouTube videoId={videoId} opts={opts} onReady={this._onReady} />
-
             </div>
         );
     }

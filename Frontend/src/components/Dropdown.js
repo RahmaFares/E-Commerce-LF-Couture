@@ -12,7 +12,7 @@ const Dropdown = () => {
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.user);
   const cart = useSelector((state) => state.cart);
-  const wishlist = useSelector((state) => state.wishlist); // Add this line to get wishlist state
+  const wishlist = useSelector((state) => state.wishlist); // Assuming you have wishlist state in redux
   const totalItemsInCart = cart?.items?.reduce((total, item) => total + item.quantity, 0) || 0;
   const totalItemsInWishlist = wishlist?.items.length || 0; // Count of items in the wishlist
   const dispatch = useDispatch();
@@ -61,16 +61,18 @@ const Dropdown = () => {
             </Link>
           </>
         )}
-        <BoldItalicItem onClick={() => navigateTo('/wishlist')}>
-          <FontAwesomeIcon icon={faHeart} /> Favorites ({totalItemsInWishlist})
-        </BoldItalicItem>
-        <BoldItalicItem onClick={() => navigateTo('/shoppingcart')}>
-          <FontAwesomeIcon icon={faShoppingCart} /> Cart({totalItemsInCart > 0 ? <span>{totalItemsInCart}</span> : '0'})
-        </BoldItalicItem>
         {currentUser && (
-          <DropdownMenuItem onClick={handleLogout}>
-            <BoldItalicItem>Logout</BoldItalicItem>
-          </DropdownMenuItem>
+          <>
+            <BoldItalicItem onClick={() => navigateTo('/wishlist')}>
+              <FontAwesomeIcon icon={faHeart} /> Favorites ({totalItemsInWishlist})
+            </BoldItalicItem>
+            <BoldItalicItem onClick={() => navigateTo('/shoppingcart')}>
+              <FontAwesomeIcon icon={faShoppingCart} /> Cart({totalItemsInCart})
+            </BoldItalicItem>
+            <DropdownMenuItem onClick={handleLogout}>
+              <BoldItalicItem>Logout</BoldItalicItem>
+            </DropdownMenuItem>
+          </>
         )}
       </DropdownMenu>
     </DropdownContainer>

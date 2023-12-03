@@ -79,22 +79,21 @@ const Login = () => {
     dispatch(LoginStart());
     try {
       const response = await dispatch(login({ username, password }));
-      // Assuming the login action returns an object with a 'type' property
       if (response.type === "user/loginSuccess") {
         console.log('Logged in user:', response.payload);
-        navigate('/');
+        if (response.payload.isAdmin) {
+          navigate('/admin');
+        } else {
+          navigate('/');
+        }
       } else {
-        // This case handles any non-success types, including failure and errors
         alert("Login failed. Please check your username and password.");
       }
     } catch (err) {
       console.error("Login failed:", err);
-      // This is a network or server error
       alert("An error occurred while trying to log in.");
     }
   };
-
-
 
   return (
     <Container>
@@ -114,7 +113,7 @@ const Login = () => {
             LOGIN
           </Button>
           <Link onClick={() => navigate('/forgot-password')}>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
+          <Link onClick={() => navigate('/register')}>CREATE A NEW ACCOUNT</Link>
         </Form>
       </Wrapper>
     </Container>

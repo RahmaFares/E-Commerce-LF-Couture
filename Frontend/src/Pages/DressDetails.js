@@ -105,7 +105,7 @@ const DressDetails = () => {
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.currentUser); // Assuming Redux is used for auth
+  const user = useSelector((state) => state.user.currentUser);
 
   useEffect(() => {
     const allProducts = [...WeddingProducts, ...SoireeProducts, ...AccessoriesProducts];
@@ -116,7 +116,6 @@ const DressDetails = () => {
 
   const handleAddToCart = () => {
     dispatch(addToCart({ ...product, quantity }));
-    // Add notification logic if needed
   };
 
   const handleQuantityChange = (type) => {
@@ -133,20 +132,22 @@ const DressDetails = () => {
     <Container>
       <Wrapper>
         <ImageContainer>
-          <Image src={product.highResolutionImg} alt={product.title} />
+          <Image src={product.img} alt={product.title} />
         </ImageContainer>
         <InfoContainer>
           <Title>{product.title}</Title>
           <Description>{product.description}</Description>
+          <br /> <br />
           <Price>${product.price.toFixed(2)}</Price>
-          <Color>Color: {product.color}</Color>
+          <br /> <br />
           <Size>Size: {product.size}</Size>
+          <br /> <br />
           <QuantityContainer>
             <QuantityButton onClick={() => handleQuantityChange("dec")}>-</QuantityButton>
             <Quantity>{quantity}</Quantity>
             <QuantityButton onClick={() => handleQuantityChange("inc")}>+</QuantityButton>
           </QuantityContainer>
-          {user && <AddToCartButton onClick={handleAddToCart}>Add to Cart</AddToCartButton>}
+          <AddToCartButton onClick={handleAddToCart}>Add to Cart</AddToCartButton>
         </InfoContainer>
       </Wrapper>
     </Container>

@@ -64,37 +64,37 @@ const Message = styled.span`
 
 // ForgotPassword Component
 const ForgotPassword = () => {
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await publicRequest.post('/auth/forgot-password', { email });
-            setMessage(response.data.message);
-        } catch (error) {
-            console.error('Error:', error);
-            setMessage('Failed to send password reset email.');
-        }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await publicRequest.post('/auth/forgot-password', { email });
+      setMessage(response.data.message);
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('Failed to send password reset email.');
+    }
+  };
 
-    return (
-        <Container>
-            <Wrapper>
-                <Title>Forgot Password</Title>
-                <Form onSubmit={handleSubmit}>
-                    <Input
-                        type="email"
-                        placeholder="Email"
-                        required
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <Button type="submit">Send Reset Link</Button>
-                </Form>
-                {message && <Message>{message}</Message>}
-            </Wrapper>
-        </Container>
-    );
+  return (
+    <Container>
+      <Wrapper>
+        <Title>Forgot Password</Title>
+        <Form onSubmit={handleSubmit}>
+          <Input
+            type="email"
+            placeholder="Email"
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Button type="submit">Send Reset Link</Button>
+        </Form>
+        {message && <Message>{message}</Message>}
+      </Wrapper>
+    </Container>
+  );
 };
 
 export default ForgotPassword;

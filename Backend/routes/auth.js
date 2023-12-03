@@ -2,11 +2,9 @@ const router = require("express").Router();
 const User = require("../models/User");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
-const nodemailer = require('nodemailer');
 const crypto = require("crypto");
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
 
 //REGISTER
 router.post("/register", async (req, res) => {
@@ -31,7 +29,6 @@ router.post("/register", async (req, res) => {
 });
 
 //LOGIN
-
 router.post("/login", async (req, res) => {
     try {
         const user = await User.findOne({ username: req.body.username });
@@ -45,7 +42,6 @@ router.post("/login", async (req, res) => {
         if (originalPassword !== req.body.password) {
             return res.status(401).json("Wrong credentials!");
         }
-        console.log("JWT_SEC:", process.env.JWT_SEC);
 
         const accessToken = jwt.sign(
             {
@@ -57,15 +53,13 @@ router.post("/login", async (req, res) => {
         );
 
         const { password, ...others } = user._doc;
-        console.log("User logged in successfully:", others);
-        res.status(200).json({ ...others, accessToken });
+        res.status(200).json({ ...others, accessToken, isAdmin: user.isAdmin });
     } catch (err) {
         console.error("Login error:", err);
-        if (!res.headersSent) {
-            res.status(500).json({ message: "An error occurred during login." });
-        }
+        res.status(500).json({ message: "An error occurred during login." });
     }
 });
+
 
 // Password Reset Request
 router.post('/forgot-password', async (req, res) => {

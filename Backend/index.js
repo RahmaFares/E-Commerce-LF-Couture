@@ -8,7 +8,8 @@ const path = require('path');
 const userRoute = require("./routes/user");
 const authRoute = require("./routes/auth");
 const paymentRoute = require('./routes/payment');
-// Uncomment below as needed
+const statisticsRoutes = require('./routes/statistics');
+const recentActivitiesRouter = require('./routes/recentActivities');
 // const productRoute = require("./routes/product");
 // const cartRoute = require("./routes/cart");
 // const orderRoute = require("./routes/order");
@@ -36,6 +37,9 @@ app.use(express.static(path.join(__dirname, 'public'))); // Serve static files f
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use('/api/payment', paymentRoute);
+app.use('/api', statisticsRoutes);
+app.use('/api/recent-activities', recentActivitiesRouter);
+
 // app.use("/api/products", productRoute);
 // app.use("/api/carts", cartRoute);
 // app.use("/api/orders", orderRoute);
