@@ -1,8 +1,8 @@
-import "./userList.module.css";
+import React, { useState, useEffect } from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import styles from "./userList.module.css"; // Import the CSS module
 import { fetchUsers } from '../../services/userService';
 
 export default function UserList() {
@@ -35,8 +35,8 @@ export default function UserList() {
             width: 200,
             renderCell: (params) => {
                 return (
-                    <div className="userListUser">
-                        <img className="userListImg" src={params.row.avatar} alt="" />
+                    <div className={styles.userListUser}>
+                        <img className={styles.userListImg} src={params.row.avatar} alt="" />
                         {params.row.username}
                     </div>
                 );
@@ -74,7 +74,7 @@ export default function UserList() {
     ];
 
     return (
-        <div className="userList">
+        <div className={styles.userList}>
             <DataGrid
                 rows={users}
                 disableSelectionOnClick

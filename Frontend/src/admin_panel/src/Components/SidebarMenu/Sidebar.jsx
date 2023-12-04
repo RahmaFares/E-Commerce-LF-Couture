@@ -30,13 +30,6 @@ export default function Sidebar() {
                 Home
               </li>
             </Link>
-            {/* If you have an analytics route in the admin panel, update the path accordingly */}
-            <Link to="/admin/analytics" className={styles.link}>
-              <li className={styles.sidebarListItem}>
-                <Equalizer className={styles.sidebarIcon} />
-                Analytics
-              </li>
-            </Link>
           </ul>
         </div>
 
@@ -78,7 +71,6 @@ export default function Sidebar() {
           </ul>
         </div>
 
-        {/* Settings Menu */}
         <div className={styles.sidebarMenu}>
           <h3 className={styles.sidebarTitle}>Settings</h3>
           <ul className={styles.sidebarList}>
@@ -86,12 +78,6 @@ export default function Sidebar() {
               <li className={styles.sidebarListItem}>
                 <Settings className={styles.sidebarIcon} />
                 General Settings
-              </li>
-            </Link>
-            <Link to="/admin/security-settings" className={styles.link}>
-              <li className={styles.sidebarListItem}>
-                <Settings className={styles.sidebarIcon} />
-                Security Settings
               </li>
             </Link>
           </ul>

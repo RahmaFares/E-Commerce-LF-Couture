@@ -1,3 +1,4 @@
+/* Home.module.css */
 .home {
     display: flex;
     flex-direction: column;
@@ -6,19 +7,26 @@
     padding: 2rem;
 }
 
-.chart-container {
-    background: #fff;
+.chartContainer {
+    background: #ffffff;
+    /* A plain white background */
+    background-image: linear-gradient(to right top, #f8f8f8, #ffffff);
+    /* A subtle gradient */
+    border: 1px solid #e6e6e6;
+    /* A light border for definition */
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* A lighter shadow */
     padding: 2rem;
     margin: 2rem 0;
     max-width: 800px;
     width: 100%;
+    overflow: hidden;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .chart-container {
+    .chartContainer {
         width: 90%;
         padding: 1rem;
     }
@@ -31,7 +39,7 @@ h1 {
     margin-bottom: 1rem;
 }
 
-.recent-activities {
+.recentActivities {
     margin: 2rem 0;
     padding: 1rem;
     background: #fff;
@@ -39,15 +47,15 @@ h1 {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.recent-activities h2 {
+.recentActivities h2 {
     margin-bottom: 1rem;
 }
 
-.recent-activities ul {
+.recentActivities ul {
     list-style: none;
     padding: 0;
 }
 
-.recent-activities li {
+.recentActivities li {
     margin-bottom: 0.5rem;
 }

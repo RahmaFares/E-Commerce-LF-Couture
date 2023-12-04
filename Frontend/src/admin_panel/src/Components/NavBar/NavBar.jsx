@@ -8,9 +8,7 @@ export default function NavBar({ theme, toggleTheme }) {
   return (
     <div className={styles.navbar}>
       <div className={styles.navbarWrapper}>
-        <div className={styles.topLeft}>
-          <span className={styles.logo}>Leila Fares</span>
-        </div>
+        <div className={styles.logo}>Leila Fares - Admin</div>
         <div className={styles.topRight}>
           <div className={styles.navbarIconContainer}>
             <NotificationsNone />
@@ -23,7 +21,7 @@ export default function NavBar({ theme, toggleTheme }) {
           <div className={styles.navbarIconContainer} onClick={toggleTheme}>
             {theme === "light" ? <Brightness4 /> : <Brightness7 />}
           </div>
-          <img src={topAvatar} alt="" className={styles.topAvatar} />
+          <img src={topAvatar} alt="Profile" className={styles.topAvatar} />
         </div>
       </div>
     </div>

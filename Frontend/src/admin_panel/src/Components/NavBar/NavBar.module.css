@@ -10,13 +10,26 @@
 }
 
 .navbar {
-    width: 100%;
+    width: calc(100% - 250px);
+    /* Subtract sidebar width */
+    margin-left: 250px;
+    /* Same as the sidebar width */
     height: var(--navbar-height);
     background-color: var(--navbar-background-color);
     position: fixed;
     top: 0;
-    z-index: 999;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    right: 0;
+    /* Align to the right to cover the full width */
+    z-index: 1000;
+    /* Above the sidebar's z-index of 100 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: rgb(222, 179, 201);
+    /* This should match the sidebar's gradient start color */
+
 }
 
 .container {
@@ -37,18 +50,21 @@
     color: var(--text-color);
     cursor: pointer;
     text-transform: uppercase;
+    padding-left: 20px;
 }
 
 .topRight {
     display: flex;
-    align-items: center;
+    right: 20px;
+    position: absolute;
+
 }
 
 .navbarIconContainer {
     position: relative;
     cursor: pointer;
     margin-right: 20px;
-    color: #888;
+    color: #100f0f;
     transition: color 0.3s;
 }
 

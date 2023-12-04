@@ -1,10 +1,29 @@
-.container{
+.app {
+    /* Assuming 'app' is a global class that wraps your entire application */
     display: flex;
-    margin-top: 10px;
+    flex-direction: column;
+    /* Stack nav bar and content container */
+    min-height: 100vh;
+    /* Full viewport height */
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    /* This will align children (sidebar & content) in a row */
+    align-items: stretch;
+    /* This will make sure that both children stretch to the container's height */
 }
 
 
-.link{
-    text-decoration: none;
-    color: inherit;
+
+
+/* Ensure the Routes container grows to fill the remaining space */
+.routes-container {
+    /* This is a new class you'll need to add to the div wrapping your Routes component */
+    flex-grow: 1;
+    width: 100%;
+    /* Ensures it occupies the maximum width available */
+    overflow: auto;
+    /* Adds a scrollbar if the content overflows */
 }

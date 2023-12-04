@@ -1,57 +1,106 @@
+/* newUser.module.css */
+
 .newUser {
-  flex: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  margin: auto;
+  margin-top: var(--navbar-height);
+  /* Space below navbar */
+  /* Semi-transparent white for content background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  /* Soft shadow for depth */
+}
+
+.newUserTitle {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
 }
 
 .newUserForm {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* Single column layout */
+  gap: 1rem;
+  width: 50%;
+  max-width: none;
+  /* Remove max-width to allow the form to be wider */
 }
 
 .newUserItem {
-  width: 400px;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  margin-right: 20px;
+  margin-bottom: 1rem;
 }
 
-.newUserItem > label {
-  margin-bottom: 10px;
-  font-size: 14px;
+.newUserItemLabel {
+  font-size: 1rem;
   font-weight: 600;
-  color: rgb(151, 150, 150);
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 
-.newUserItem > input {
-  height: 20px;
-  padding: 10px;
-  border: 1px solid gray;
+.newUserItemInput,
+.newUserItemSelect {
+  padding: 1rem;
+  /* Increase padding for better text visibility */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #fcfcfc;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.newUserSelect {
+  height: 40px;
   border-radius: 5px;
 }
 
-.newUserGender > input {
-  margin-top: 15px;
+.newUserGender {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
 }
 
-.newUserGender>label{
-    margin: 10px;
-    font-size: 18px;
-    color: #555;
+.newUserGenderLabel {
+  margin: 10px;
+  font-size: 18px;
+  color: #555;
 }
 
-.newUserSelect{
-    height: 40px;
-    border-radius: 5px;
+.newUserButton {
+  width: 100%;
+  border: none;
+  background-color: #5C6BC0;
+  /* Button color to match your theme */
+  color: white;
+  padding: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.newUserButton{
-    width: 200px;
-    border: none;
-    background-color: darkblue;
-    color: white;
-    padding: 7px 10px;
-    font-weight: 600;
-    border-radius: 10px;
-    margin-top: 30px;
-    cursor: pointer;
+.newUserButton:hover {
+  background-color: #3F51B5;
+  /* A slightly darker shade on hover */
+  transform: translateY(-2px);
+  /* Lift effect on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .newUser {
+    padding: 1rem;
+  }
+
+  .newUserForm {
+    width: 90%;
+  }
+
 }

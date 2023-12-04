@@ -1,13 +1,14 @@
 import React from 'react';
 import NavBar from './Components/NavBar/NavBar';
 import Sidebar from './Components/SidebarMenu/Sidebar';
+import './Admin.css'
 
 function AdminLayout({ children }) {
     return (
-        <div className="app light">
+        <div className="admin-panel light">
             <NavBar />
-            <div className="container">
-                <Sidebar />
+            <Sidebar />
+            <div className="content">
                 {children}
             </div>
         </div>

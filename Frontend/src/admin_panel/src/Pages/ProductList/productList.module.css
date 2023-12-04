@@ -1,8 +1,11 @@
-.productList{
-    flex: 4;
+.productList {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: calc(100vh - 50px);
 }
 
-.productListItem{
+.productListItem {
     display: flex;
     align-items: center;
 }
@@ -13,9 +16,9 @@
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
-  }
+}
 
-.productListEdit{
+.productListEdit {
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
@@ -23,9 +26,19 @@
     color: white;
     cursor: pointer;
     margin-right: 20px;
+    transition: background-color 0.3s ease;
 }
 
-.productListDelete{
+.productListEdit:hover {
+    background-color: #338a5e;
+}
+
+.productListDelete {
     color: red;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.productListDelete:hover {
+    color: darkred;
 }

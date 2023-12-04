@@ -36,7 +36,7 @@ export default function Home() {
     return (
         <div className={styles.home}>
             <h1>Dashboard</h1>
-            <div className="chart-container">
+            <div className={styles.chartContainer}>
                 {chartData.labels ? <UserChart data={chartData} /> : <p>Loading...</p>}
             </div>
         </div>
