@@ -9,7 +9,6 @@
 
 .chartContainer {
     background: #ffffff;
-    /* A plain white background */
     background-image: linear-gradient(to right top, #f8f8f8, #ffffff);
     /* A subtle gradient */
     border: 1px solid #e6e6e6;

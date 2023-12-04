@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const activityLogSchema = new mongoose.Schema({
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // reference to the User model
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     activityType: String,
     description: String,
     timestamp: { type: Date, default: Date.now }

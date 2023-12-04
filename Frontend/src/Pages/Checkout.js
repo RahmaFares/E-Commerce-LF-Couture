@@ -5,7 +5,6 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useNavigate } from 'react-router-dom';
 
 
-// Styled components for the checkout page
 const CheckoutContainer = styled.div`
     padding: 20px;
     background-color: #f8f9fa;
@@ -57,7 +56,6 @@ const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const stripe = useStripe();
     const elements = useElements();
-    // const navigate = useNavigate();
 
     // Fetch total amount from Redux store
     const totalAmount = useSelector(state =>
@@ -99,7 +97,6 @@ const Checkout = () => {
 
             if (data.success) {
                 alert('Payment successful!');
-                // navigate(`/order-summary/${data.order._id}`);
             } else {
                 alert('Payment failed on server. Please try again.');
             }

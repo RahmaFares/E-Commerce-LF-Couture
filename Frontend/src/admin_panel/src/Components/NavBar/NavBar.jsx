@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./NavBar.module.css"; // Make sure to import the styles
+import styles from "./NavBar.module.css";
 import { NotificationsNone, Language, Settings } from "@material-ui/icons";
 import topAvatar from "../../assets/images/TopAvatar.jpg";
-import { Brightness4, Brightness7 } from "@material-ui/icons"; // Import light and dark icons
+import { Brightness4, Brightness7 } from "@material-ui/icons";
 
 export default function NavBar({ theme, toggleTheme }) {
   return (

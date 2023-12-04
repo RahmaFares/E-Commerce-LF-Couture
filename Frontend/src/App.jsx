@@ -106,7 +106,6 @@ function App() {
         <Router>
           <AuthProvider>
             <AppContainer>
-              {/* AppRoutes includes the navbar and footer and uses the useLocation hook */}
               <AppRoutes />
             </AppContainer>
           </AuthProvider>

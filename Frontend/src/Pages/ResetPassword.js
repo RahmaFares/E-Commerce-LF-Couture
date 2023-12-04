@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useParams, useNavigate } from 'react-router-dom';
-import { publicRequest } from '../reqMethods'; // Ensure this is the correct path
+import { publicRequest } from '../reqMethods';
 
-// Styled Components
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,7 +10,6 @@ const Container = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background: /* Your background style here */;
 `;
 
 const Wrapper = styled.div`
@@ -63,42 +61,41 @@ const Message = styled.span`
   text-align: center;
 `;
 
-// ResetPassword Component
 const ResetPassword = () => {
-    const [password, setPassword] = useState('');
-    const [message, setMessage] = useState('');
-    const { token } = useParams(); // Get the token from the URL
-    const navigate = useNavigate();
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const { token } = useParams(); // Getting the token from the URL
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await publicRequest.patch(`/auth/reset-password/${token}`, { password });
-            setMessage(response.data.message);
-            setTimeout(() => navigate('/login'), 3000); // Redirect to login after 3 seconds
-        } catch (error) {
-            console.error('Error:', error);
-            setMessage('Failed to reset password.');
-        }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await publicRequest.patch(`/auth/reset-password/${token}`, { password });
+      setMessage(response.data.message);
+      setTimeout(() => navigate('/login'), 3000); // Redirect to login after 3 seconds
+    } catch (error) {
+      console.error('Error:', error);
+      setMessage('Failed to reset password.');
+    }
+  };
 
-    return (
-        <Container>
-            <Wrapper>
-                <Title>Reset Password</Title>
-                <Form onSubmit={handleSubmit}>
-                    <Input
-                        type="password"
-                        placeholder="New Password"
-                        required
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <Button type="submit">Reset Password</Button>
-                </Form>
-                {message && <Message>{message}</Message>}
-            </Wrapper>
-        </Container>
-    );
+  return (
+    <Container>
+      <Wrapper>
+        <Title>Reset Password</Title>
+        <Form onSubmit={handleSubmit}>
+          <Input
+            type="password"
+            placeholder="New Password"
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button type="submit">Reset Password</Button>
+        </Form>
+        {message && <Message>{message}</Message>}
+      </Wrapper>
+    </Container>
+  );
 };
 
 export default ResetPassword;

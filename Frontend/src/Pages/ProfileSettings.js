@@ -11,8 +11,8 @@ const ProfileContainer = styled.div`
 
 const Sidebar = styled.div`
   flex: 0.2;
-  background-color: #000; /* Black background */
-  color: #fff; /* White text */
+  background-color: #000; 
+  color: #fff; 
   padding: 20px;
 `;
 
@@ -21,7 +21,7 @@ const NavLink = styled.div`
   cursor: pointer;
   &:hover {
     font-weight: bold;
-    color: #c0a080; /* Change hover color to match your theme */
+    color: #c0a080; 
   }
 `;
 
@@ -31,8 +31,8 @@ const LogoutButton = styled.button`
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  margin-top: 20px; /* Add some space above the logout button */
-  width: 100%; /* Stretch to the container width */
+  margin-top: 20px; 
+  width: 100%; 
   &:hover {
     background-color: #c00;
   }
@@ -56,15 +56,15 @@ const Title = styled.h2`
 function ProfileSettings() {
   const user = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
-  const dispatch = useDispatch(); // Define useDispatch here
+  const dispatch = useDispatch();
 
   if (!user) {
     navigate('/login');
-    return null; // or a loading spinner until the navigation takes effect
+    return null;
   }
 
   const handleLogout = () => {
-    dispatch(Logout()); // Dispatch the Logout action
+    dispatch(Logout());
     navigate('/');
   };
 

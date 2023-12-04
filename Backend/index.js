@@ -47,7 +47,7 @@ app.use('/api/recent-activities', recentActivitiesRouter);
 
 // Error handling middleware
 app.use((error, req, res, next) => {
-    console.error(error); // Log the error for server-side tracking
+    console.error(error);
     res.status(error.status || 500).json({
         message: error.message || "An internal server error occurred.",
         error: error,
@@ -68,16 +68,6 @@ app.get('/reset-password/:token', async (req, res) => {
             // Token is invalid or has expired
             return res.status(400).json({ error: "Token is invalid or has expired" });
         }
-
-        // Render the password reset form here
-        // You can use a template engine like EJS or send an HTML file as a response
-
-        // Example using EJS:
-        // res.render('reset-password', { token: resetToken });
-
-        // Example sending an HTML file:
-        // res.sendFile(path.join(__dirname, 'public', 'reset-password.html'));
-
     } catch (err) {
         console.error("Error during password reset:", err);
         res.status(500).json("There was an error resetting the password.");

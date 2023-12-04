@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom'; // Import NavLink from react-router-dom
+import { NavLink } from 'react-router-dom';
 
 export const DropdownContainer = styled.div`
     position: absolute;
-    top: 100%; /* Position below the link */
+    top: 100%; 
     left: 0;
-    display: none; /* Hide by default */
+    display: none; 
     background-color: white;
     border: 1px solid #ccc;
     border-top: none;

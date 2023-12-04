@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { publicRequest } from '../reqMethods'; // Ensure this is the correct path
+import { publicRequest } from '../reqMethods';
 
 // Styled Components
 const Container = styled.div`
@@ -10,7 +10,6 @@ const Container = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background: /* Your background style here */;
 `;
 
 const Wrapper = styled.div`

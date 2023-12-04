@@ -11,7 +11,7 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 width: 100vw;
-height: 100vh; // Adjust height as needed
+height: 100vh; 
 background-image: url(${newsbg});
 background-size: cover;
 background-repeat: no-repeat;
@@ -76,7 +76,7 @@ const Register = () => {
     e.preventDefault();
     dispatch(register(userInfo))
       .then(() => {
-        navigate('/'); // Navigate to home page on successful registration
+        navigate('/');
       })
       .catch((error) => {
         console.error('Registration failed', error);

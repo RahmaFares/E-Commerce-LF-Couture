@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'; // Add useEffect to your import from React
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom'; // Add useNavigate to your import from react-router-dom
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { removeFromWishlist } from '../redux/Wishlist/wishlistSlice';
 
 const WishlistContainer = styled.div`
-    background-color: #f2f2f2; /* Updated background color */
+    background-color: #f2f2f2;
     border: 1px solid #e0e0e0;
-    border-radius: 10px; /* Increased border radius for a softer look */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Enhanced box shadow */
+    border-radius: 10px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); 
     padding: 20px;
     margin: 20px;
     text-align: center;
@@ -30,11 +30,11 @@ const WishlistItem = styled.li`
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: #fff; /* White background for list items */
+    background-color: #fff; 
     border: 1px solid #e0e0e0;
-    border-radius: 10px; /* Increased border radius for list items */
+    border-radius: 10px; 
     margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 `;
 
 const WishlistItemDetails = styled.div`
@@ -46,7 +46,7 @@ const WishlistItemImage = styled.img`
     width: 80px;
     height: 80px;
     object-fit: cover;
-    border-radius: 10px; /* Increased border radius for images */
+    border-radius: 10px; 
     margin-right: 20px;
 `;
 
@@ -71,7 +71,7 @@ const WishlistRemoveButton = styled.button`
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 10px; /* Increased border radius for the button */
+    border-radius: 10px; 
     cursor: pointer;
     transition: background-color 0.3s ease;
 
@@ -92,7 +92,7 @@ const Wishlist = () => {
     }, [wishlist, navigate]);
 
     const handleRemoveFromWishlist = (id) => {
-        dispatch(removeFromWishlist(id)); // Pass the id to removeFromWishlist
+        dispatch(removeFromWishlist(id));
     };
 
     return (

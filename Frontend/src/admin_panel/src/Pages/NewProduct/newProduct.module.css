@@ -1,5 +1,3 @@
-/* newProduct.module.css */
-
 .newProduct {
   display: flex;
   flex-direction: column;
@@ -8,10 +6,7 @@
   padding: 2rem;
   margin: auto;
   margin-top: var(--navbar-height);
-  /* Space below the navbar */
-
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.015);
-  /* Subtle shadow for depth */
   border-radius: 10px;
   /* Rounded corners for a modern look */
   background: rgba(244, 218, 218, 0.036);
@@ -21,7 +16,6 @@
 .addProductForm {
   display: grid;
   grid-template-columns: 1fr;
-  /* Single column layout */
   gap: 1rem;
   width: 50%;
   max-width: none;
@@ -29,45 +23,33 @@
 
 .addProductItem {
   margin-bottom: 1rem;
-  /* Space between form fields */
 }
 
 .addProductItemLabel {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  /* Space between label and input */
 }
 
 .addProductItemInput,
 .addProductItemSelect {
   padding: 1rem;
-  /* Larger padding for inputs for a modern look */
   border: 1px solid #ddd;
-  /* Subtle border color */
   border-radius: 5px;
-  /* Modern border radius */
   font-size: 1rem;
-  /* Adequate font size for readability */
 }
 
 .addProductButton {
   padding: 1rem;
-  /* Comfortable padding inside the button */
   border-radius: 5px;
-  /* Consistent border radius with inputs */
   background-color: #5C6BC0;
   /* Theme color */
   color: white;
   /* Text color */
   font-weight: 600;
-  /* Bold font weight */
   cursor: pointer;
-  /* Cursor for button */
   transition: background-color 0.3s ease;
-  /* Smooth transition for hover effect */
   margin-top: 1rem;
-  /* Space above the button */
 }
 
 .addProductButton:hover {

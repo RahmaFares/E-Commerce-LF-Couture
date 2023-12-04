@@ -27,7 +27,6 @@
     object-fit: cover;
     border: 3px solid #eee;
     display: block;
-    /* Remove any default inline behaviors */
     margin: 0 auto;
 }
 
@@ -92,23 +91,15 @@
 .btn--secondary {
     padding: 10px 20px;
     border: none;
-    /* Removing the border for a flat design */
     background-color: #5C6BC0;
-    /* A modern, vibrant color */
     color: white;
-    /* White text for better readability */
     border-radius: 25px;
-    /* Fully rounded edges for a pill-like shape */
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-transform: uppercase;
-    /* Optional: for a more modern, editorial look */
     font-weight: bold;
-    /* Making the text bold */
     letter-spacing: 1px;
-    /* Increasing letter spacing for a touch of sophistication */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    /* Subtle shadow for depth */
 }
 
 .notificationsAndMessages {
@@ -122,20 +113,14 @@
     padding: 10px 20px;
     border: none;
     border-radius: 25px;
-    /* Fully rounded edges for a pill-like shape */
     background-color: #ffc1073f;
-    /* A modern, attention-grabbing color */
     color: #333;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-transform: uppercase;
-    /* Optional: for a more modern, editorial look */
     font-weight: bold;
-    /* Making the text bold */
     letter-spacing: 1px;
-    /* Increasing letter spacing for a touch of sophistication */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    /* Subtle shadow for depth */
 }
 
 .yourButtonStyles:hover {

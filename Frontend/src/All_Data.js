@@ -63,11 +63,19 @@ export const WeddingProducts = [
     },
     {
         id: 7,
+        title: 'Simple Wedding Dress',
+        description: 'A simple yet elegant wedding dress.',
+        price: 650.00,
         img: img1,
+        size: ['S', 'M'],
     },
     {
         id: 8,
+        title: 'Summer Wedding Dress',
+        description: 'A light and airy wedding dress perfect for summer.',
+        price: 720.00,
         img: img3,
+        size: ['M', 'L'],
     },
 ];
 
@@ -90,27 +98,51 @@ export const SoireeProducts = [
     },
     {
         id: 3,
+        title: 'Evening Soiree Dress',
+        description: 'An elegant dress for a refined evening look.',
+        price: 200.00,
         img: img3,
+        sizes: ['S', 'M', 'L'],
     },
     {
         id: 4,
+        title: 'Casual Soiree Dress',
+        description: 'Perfect for casual gatherings and parties.',
+        price: 150.00,
         img: img2,
+        sizes: ['S', 'M'],
     },
     {
         id: 5,
+        title: 'Chic Soiree Dress',
+        description: 'A dress that combines modern chic with classic elegance.',
+        price: 180.00,
         img: img4,
+        sizes: ['S', 'M', 'L', 'XL'],
     },
     {
         id: 6,
+        title: 'Glamorous Soiree Dress',
+        description: 'A glamorous dress for making an entrance.',
+        price: 210.00,
         img: img5,
+        sizes: ['M', 'L'],
     },
     {
         id: 7,
+        title: 'Sophisticated Soiree Dress',
+        description: 'Sophistication meets style in this soiree dress.',
+        price: 190.00,
         img: img11,
+        sizes: ['S', 'M', 'L'],
     },
     {
         id: 8,
+        title: 'Summer Soiree Dress',
+        description: 'Stay cool and stylish with this summer soiree dress.',
+        price: 160.00,
         img: img3,
+        sizes: ['S', 'M', 'L'],
     },
 ];
 

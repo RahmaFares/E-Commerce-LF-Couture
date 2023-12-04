@@ -26,8 +26,8 @@ import Login from "./Pages/Login";
 import { useSelector } from "react-redux";
 import ProfileSettings from './Pages/ProfileSettings';
 import OrderSummary from './Pages/OrderSummary';
-import ForgotPassword from './Pages/ForgotPassword'; // Adjust the path as necessary
-import ResetPassword from './Pages/ResetPassword'; // Adjust the path as necessary
+import ForgotPassword from './Pages/ForgotPassword';
+import ResetPassword from './Pages/ResetPassword';
 import AdminPanel from './admin_panel/src/App';
 
 function MainLayout() {

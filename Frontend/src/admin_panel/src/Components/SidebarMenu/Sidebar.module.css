@@ -1,12 +1,10 @@
 .sidebar {
     width: 250px;
     height: 100vh;
-    /* Fill the full height of the viewport */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background: linear-gradient(to right, #b399c9, rgb(222, 179, 201));
     color: #FFFFFF;
     overflow-y: hidden;
-    /* Hide the scrollbar */
     position: fixed;
     top: 0;
     left: 0;
@@ -17,8 +15,6 @@
     padding-top: 50px;
     padding: 20px;
     height: 100%;
-    /* Fill the height of its parent */
-    /* Only show scrollbar when needed */
 }
 
 .sidebarTitle {
@@ -42,9 +38,7 @@
     border-radius: 10px;
     transition: background-color 0.3s, transform 0.3s;
     margin-bottom: 10px;
-    /* Add space between list items */
     background: transparent;
-    /* Clear background for a modern flat design */
 }
 
 .sidebarListItem.active,
@@ -58,5 +52,4 @@
     margin-right: 10px;
     font-size: 20px;
     color: #FFFFFF;
-    /* Icons in white to contrast the background */
 }

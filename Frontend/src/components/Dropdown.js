@@ -12,7 +12,7 @@ const Dropdown = () => {
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.user);
   const cart = useSelector((state) => state.cart);
-  const wishlist = useSelector((state) => state.wishlist); // Assuming you have wishlist state in redux
+  const wishlist = useSelector((state) => state.wishlist);
   const totalItemsInCart = cart?.items?.reduce((total, item) => total + item.quantity, 0) || 0;
   const totalItemsInWishlist = wishlist?.items.length || 0; // Count of items in the wishlist
   const dispatch = useDispatch();

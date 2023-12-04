@@ -9,7 +9,7 @@ import {
 import { publicRequest } from "../reqMethods";
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-
+// Registering new user
 export const register = (userInfo) => async (dispatch) => {
     dispatch(RegisterStart());
     try {
@@ -20,6 +20,7 @@ export const register = (userInfo) => async (dispatch) => {
     }
 };
 
+// User login
 export const login = (credentials) => async (dispatch) => {
     try {
         const response = await publicRequest.post('/auth/login', credentials);

@@ -39,7 +39,6 @@ const cartSlice = createSlice({
                 existingItem.quantity += 1;
             }
         },
-        // Add other reducers as needed (e.g., clearCart, etc.)
     },
 });
 

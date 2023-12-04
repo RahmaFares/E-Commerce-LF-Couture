@@ -43,3 +43,13 @@
 .userListEdit:hover {
   background-color: #339966;
 }
+
+.dataGridContainer {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.86);
+  border-radius: 4px;
+}
+
+.MuiDataGrid-cell {
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+}

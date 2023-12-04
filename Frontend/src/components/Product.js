@@ -67,9 +67,8 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
-  // Assuming you have the user's authentication status stored in Redux store
   const user = useSelector((state) => state.user.currentUser);
-  const navigate = useNavigate(); // Define useNavigate here
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {

@@ -27,7 +27,7 @@ const ContainersWrapper = styled.div`
 `;
 
 const Container = styled.div`
-  flex: 1 1 calc(100% - 20px); /* Full width on small screens */
+  flex: 1 1 calc(100% - 20px); 
   text-align: center;
   padding: 10px;
   border: 1px solid #ddd;
@@ -39,13 +39,12 @@ const Container = styled.div`
   }
 
   @media (min-width: 768px) {
-    /* Adjust for medium-sized screens */
-    flex: 1 1 calc(50% - 20px); /* Two columns */
+    flex: 1 1 calc(50% - 20px); 
   }
 
   @media (min-width: 992px) {
     /* Adjust for large screens */
-    flex: 1 1 calc(33.33% - 20px); /* Three columns */
+    flex: 1 1 calc(33.33% - 20px); 
   }
 `;
 
@@ -56,7 +55,7 @@ const ContainerLink = styled.a`
 
 const ContainerImage = styled.img`
   max-width: 100%;
-  height: 100%; /* Ensure image aspect ratio is maintained */
+  height: 100%; 
   border-radius: 6px;
 `;
 

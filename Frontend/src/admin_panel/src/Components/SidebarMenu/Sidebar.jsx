@@ -4,18 +4,16 @@ import {
   Dashboard, PeopleAlt, Storefront, Equalizer, Settings,
   ExitToApp
 } from "@material-ui/icons";
-import styles from './Sidebar.module.css'; // Make sure this path is correct
+import styles from './Sidebar.module.css';
 
 export default function Sidebar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Implement your logout logic here
     navigate("/login");
   };
 
-  // This is a placeholder. You should replace it with the actual theme state from your application
-  const theme = 'light'; // or 'dark'
+  const theme = 'light';
 
   return (
     <div className={styles.sidebar}>

@@ -16,5 +16,5 @@ export const publicRequest = axios.create({
 
 export const userRequest = axios.create({
   baseURL: BASE_URL,
-  headers: { Authorization: `Bearer ${TOKEN}` }, // Make sure it's "Authorization" and not "token" unless your backend is configured differently.
+  headers: { Authorization: `Bearer ${TOKEN}` },
 });
